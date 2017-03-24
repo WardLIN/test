@@ -1,2 +1,2 @@
 # test
-just some simple examples
+just some simple demo
