@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SVG</title>
+	<!--  IE6~8浏览器兼容  -->
+	<!--[if lt IE 9]>
+  		<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+  	<style>
+  		*{
+  			padding: 0;
+  			margin: 0;
+  		}
+  		table,caption,tr,th,td{
+  			border-collapse: collapse;
+  			border: 1px solid #d3d3d3;
+  		}
+  		ul{
+  			margin-left: 20px;
+  		}
+  	</style>
+</head>
+<body>
+    <h1>SVG</h1>
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+  		<polygon points="100,10 40,180 190,60 10,60 160,180" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;">
+  		抱歉, 你的浏览器不支持内联SVG.
+	</svg>
+	<table>
+		<caption>Canvas 与 SVG 的比较</caption>
+		<tr>
+			<th>canvas</th>
+			<th>SVG</th>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+					<li>依赖分辨率</li>
+					<li>不支持事件处理器</li>
+					<li>弱的文本渲染能力</li>
+					<li>能够以 .png 或 .jpg 格式保存结果图像</li>
+					<li>最适合图像密集型的游戏，其中的许多对象会被频繁重绘</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>不依赖分辨率</li>
+					<li>支持事件处理器</li>
+					<li>最适合带有大型渲染区域的应用程序（比如谷歌地图）</li>
+					<li>复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）</li>
+					<li>不适合游戏应用</li>
+				</ul>
+			</td>
+		</tr>
+		
+	</table>
+</body>
+</html>

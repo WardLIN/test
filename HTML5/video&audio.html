@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>video&audio</title>
+</head>
+<body>
+    <h1>video</h1>
+    <div>
+    	<video id="video" width="420" controls>
+    		<source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+    		<source src="http://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+    		你的浏览器不支持html5 video标签
+    	</video><br>
+    	<button onclick="playControl()">播放/暂停</button>
+    </div>
+    <h1>audio</h1>
+    <audio controls>
+	  <source src="http://www.runoob.com/try/demo_source/horse.ogg" type="audio/ogg">
+	  <source src="http://www.runoob.com/try/demo_source/horse.mp3" type="audio/mpeg">
+	您的浏览器不支持 audio 元素。
+	</audio>
+    <script>
+    	var video = document.getElementById("video");
+    	function playControl(){
+    		if(video.paused){
+    			video.play();
+    		}
+    		else{
+    			video.pause();
+    		}
+    	}
+    </script>	
+</body>
+</html>

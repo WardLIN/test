@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<!--  IE6~8浏览器兼容  -->
+	<!--[if lt IE 9]>
+  		<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		header,section,footer,aside,nav,main,artcile,figure{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<h1>canvas</h1>
+	<h2>canvas-图形</h2>
+	<canvas id="canvas-pic" width="200" height="100" style="border:1px solid #d3d3d3;">
+		您的浏览器不支持html5 canvas标签
+	</canvas>
+	<h2>canvas-路径</h2>
+	<canvas id="canvas-road" width="200" height="100" style="border:1px solid #d3d3d3;">
+		您的浏览器不支持html5 canvas标签
+	</canvas>
+	<h2>canvas-圆形</h2>
+	<canvas id="canvas-circle" width="200" height="100" style="border:1px solid #d3d3d3;">
+		您的浏览器不支持html5 canvas标签
+	</canvas>
+	<h2>canvas-文本</h2>
+	<canvas id="canvas-text" width="200" height="100" style="border:1px solid #d3d3d3;">
+		您的浏览器不支持html5 canvas标签
+	</canvas>
+	<h2>canvas-渐变</h2>
+	<canvas id="canvas-gradient" width="200" height="100" style="border:1px solid #d3d3d3;">
+		您的浏览器不支持html5 canvas标签
+	</canvas>
+	<h2>canvas-图像</h2>
+	<p>Image to use:</p>
+	<img id="bird" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4119053459,2447751609&fm=21&gp=0.jpg" alt="The bird" width="220" height="277">
+	<p>Canvas:</p>
+	<canvas id="canvas-image" width="250" height="300" style="border:1px solid #d3d3d3;">
+	您的浏览器不支持 HTML5 canvas 标签。</canvas>
+	<script>
+	    // 图形
+		var c = document.getElementById("canvas-pic");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle = "#FF0000"; //设置默认为#000000
+		ctx.fillRect(0,0,150,75);
+        // 直线
+		var c = document.getElementById("canvas-road");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle = "#FF0000"; 
+		ctx.moveTo(0,0); //起点
+		ctx.lineTo(200,100);  //终点
+		ctx.stroke(); // stroke() 方法绘制线条
+		// canvas-圆形
+		var c = document.getElementById("canvas-circle");
+		var ctx = c.getContext("2d");
+		ctx.beginPath();
+		ctx.arc(95,50,40,0,2*Math.PI);//Math.PI === π，这里表示角度180°
+		ctx.stroke();//逆时针画圆
+		// canvas-文本
+		var c = document.getElementById("canvas-text");
+		var ctx = c.getContext("2d");
+		ctx.font = "30px Arial";
+		ctx.fillText("Hello World",10,40);//实心字体
+		ctx.strokeText("Hello Canvas",10,70);//空心字体
+
+		//canvas-gradient
+		var c=document.getElementById("canvas-gradient");
+		var ctx=c.getContext("2d");
+		// 创建线性渐变
+		var grd=ctx.createLinearGradient(0,0,200,0);
+		grd.addColorStop(0,"red");
+		grd.addColorStop(1,"white"); 
+		// 填充渐变
+		ctx.fillStyle=grd;
+		ctx.fillRect(10,10,150,40);
+		// 创建径向/圆渐变
+		var grd=ctx.createRadialGradient(75,50,5,90,60,100);
+		grd.addColorStop(0,"red");
+		grd.addColorStop(1,"white"); 
+		// 填充渐变
+		ctx.fillStyle=grd;
+		ctx.fillRect(10,60,150,90);
+
+
+		//canvas-图像
+		var c = document.getElementById("canvas-image");
+		var ctx = c.getContext("2d");
+		var img = document.getElementById("bird");
+		ctx.drawImage(img,10,10)
+
+	</script>
+</body>
+</html>

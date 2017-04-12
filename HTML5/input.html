@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>input类型</title>
+</head>
+<body>
+	颜色： <input type="color"><br>
+	日期：<input type="date"><br>
+	E-mail： <input type="email" name="email"><br>
+	生日 (月和年): <input type="month" name="bdaymonth"><br>
+	数量 ( 1 到 5 之间 ): <input type="number" name="quantity" min="1" max="5"><br>
+	range: <input type="range" name="points" min="1" max="10"><br>
+	<p><b>注意:</b> Internet Explorer 9 及更早 IE 版本不支持 type="range"。</p><br>
+	Search: <input type="search" name="googlesearch"><br>
+	telphone: <input type="tel" name="usrtel"><br>
+	time: <input type="time" name="usr_time"><br>
+	url: <input type="url" name="homepage"><br>
+	week(选择周和年): <input type="week" name="week_year">
+
+	<h2>html5 表单元素datalist</h2>
+	<form action="demo-form.php" method="get">
+		<input list="browsers" name="browser">
+		<datalist id="browsers">
+		  <option value="Internet Explorer">
+		  <option value="Firefox">
+		  <option value="Chrome">
+		  <option value="Opera">
+		  <option value="Safari">
+		</datalist>
+		<input type="submit">
+	</form>
+
+<p><strong>注意:</strong> Internet Explorer 9（更早 IE 版本），Safari 不支持 datalist 标签。</p>
+</body>
+</html>
