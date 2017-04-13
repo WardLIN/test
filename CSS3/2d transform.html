@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D 变换</title>
+	<style>
+		*{
+			padding: 0;
+			margin-left: 50px;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border: 1px solid black;
+		}
+		div#div1{
+			width: 200px;
+			height: 100px;
+			background-color: yellow;
+			/* rotate div */
+			transform: rotate(30deg);
+			-webkit-transform: rotate(30deg);
+			-ms-transform: rotate(30deg);
+		}
+		div#div_translate{
+			transform: translate(10px,20px);
+			-webkit-transform: translate(10px,20px);
+			-ms-transform: translate(10px,20px);
+		}
+		div#div_scale{
+			-webkit-transform: scale(1.5,2);
+			-ms-transform: scale(1.5,2);
+			transform: scale(1.5,2);
+		}
+		div#div_skew{
+			transform: skew(30deg,20deg);
+			-ms-transform: skew(30deg,20deg); /* IE 9 */
+			-webkit-transform: skew(30deg,20deg); /* Safari and Chrome */
+
+		}
+		div#div_matrix{
+			transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+			-ms-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* IE 9 */
+			-webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Safari and Chrome */
+		}
+		table,tr,td{
+			border-collapse: collapse;
+			border: 1px solid #d3d3d3;
+		}
+		tr:odd{
+			background-color: #d3d3d3;
+		}
+	</style>
+</head>
+<body>
+    <ul>
+    	<li>
+    		<h2>rotate()方法</h2>
+		    <p>rotate()方法，在一个给定度数顺时针旋转的元素。负值是允许的，这样是元素逆时针旋转</p>
+			<div id="div1">rotate</div>
+    	</li>
+    	<li>
+    		<h2>translate()方法</h2>
+			<p>translate()方法，根据左(X轴)和顶部(Y轴)位置给定的参数，从当前元素位置移动</p>
+			<div>this is a demo</div>
+			<div id="div_translate">translate</div>
+    	</li>
+    	<li>
+    		<h2>scale() 方法</h2>
+			<p>scale()方法，该元素增加或减少的大小，取决于宽度（X轴）和高度（Y轴）的参数：</p>
+			<div id="div_scale">scale</div>
+    	</li>
+    	<li>
+    	    <h2>skew()</h2>
+    	    <p>包含两个参数值，分别表示X轴和Y轴倾斜的角度，如果第二个参数为空，则默认为0，参数为负表示向相反方向倾斜</p>
+    		<div id="div_skew">skew</div>
+    	</li>
+    	<li>
+    	    <h2>matrix()</h2>
+    	    <p>matrix()方法和2D变换方法合并成一个。matrix 方法有六个参数，包含旋转，缩放，移动（平移）和倾斜功能。</p>
+    		<div id="div_matrix">matrix</div>
+    	</li>
+    </ul>
+    <table>
+    	<caption>2D转换方法</caption>
+    	<tr>
+    		<th>函数</th>
+    		<th>描述</th>
+    	</tr>
+    	<tr>
+    		<td>matrix(n,n,n,n,n,n)</td>
+    		<td>定义 2D 转换，使用六个值的矩阵。</td>
+    	</tr>
+    	<tr>
+    		<td>translate(x,y)</td>
+    		<td>定义 2D 转换，沿着 X 和 Y 轴移动元素。</td>
+    	</tr>
+    	<tr>
+    		<td>translateX(n)</td>
+    		<td>定义 2D 转换，沿着 X 轴移动元素。</td>
+    	</tr>
+    	<tr>
+    		<td>translateY(n)</td>
+    		<td>定义 2D 转换，沿着 Y 轴移动元素。</td>
+    	</tr>
+    	<tr>
+    		<td>scale(x,y)</td>
+    		<td>定义 2D 缩放转换，改变元素的宽度和高度</td>
+    	</tr>
+    	<tr>
+    		<td>scaleX(n)</td>
+    		<td>定义 2D 缩放转换，改变元素的宽度。</td>
+    	</tr>
+    	<tr>
+    		<td>scaleY(n)</td>
+    		<td>定义 2D 缩放转换，改变元素的高度。</td>
+    	</tr>
+    	<tr>
+    		<td>rotate(angle)</td>
+    		<td>定义 2D 旋转，在参数中规定角度。</td>
+    	</tr>
+    	<tr>
+    		<td>skew(x-angle,y-angle)</td>
+    		<td>定义 2D 倾斜转换，沿着 X 和 Y 轴。</td>
+    	</tr>
+    	<tr>
+    		<td>skewX(angle)</td>
+    		<td>定义 2D 倾斜转换，沿着 X 轴。</td>
+    	</tr>
+    	<tr>
+    		<td>skewY(angle)</td>
+    		<td>定义 2D 倾斜转换，沿着 Y 轴。
+    		</td>
+    	</tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多列</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		div.news{
+			/* column-count指定列数 */
+			column-count: 3;
+			-webkit-column-count: 3;
+			-ms-column-count: 3;
+			/* column-gap指定列与列之间的间距 */
+			column-gap: 40px;
+			-webkit-column-gap: 40px;
+			-ms-column-gap: 40px;
+			/* column-rule-style指定列与列间的边框样式 */
+			column-rule-style: dotted;
+			-webkit-column-rule-style: dotted;
+			-ms-column-rule-style: dotted;
+			/* column-rule-width指定两列的边框厚度 */
+			column-rule-width: 1px;
+			-webkit-column-rule-width: 1px;
+			-ms-column-rule-width: 1px;
+			/* column-rule-color指定两列的边框颜色 */
+			column-rule-color: red;
+			-webkit-column-rule-color: red;
+			-ms-column-rule-width: red;
+			/* coloum-rule是所有column-rule-*属性集合的简写 */
+			/* column-rule: 1px dotted red;
+			-webkit-column-rule: 1px dotted red;
+			-ms-column-rule: 1px dotted red; */
+
+            
+		}
+		h2.title{
+			/* column-span指定元素跨越多少列 */
+			column-span: all;
+			-webkit-column-span: all;
+		}
+		div.othernews{
+			/* column-width指定列的宽度 ,不能与column-count并用，会发生冲突*/
+			column-width: 100px;
+			-webkit-column-width: 100px;
+		}
+		table,tr,td{
+			border-collapse: collapse;
+			border: 1px solid #000000;
+		}
+		th{
+			background-color: rgba(0,0,0,0.5);
+		}
+		td{
+			padding: 0 10px;
+		}
+		tr:nth-child(odd)>td{
+			background-color: #d3d3d3;
+		}
+	</style>
+</head>
+<body>
+	<p><b>注意:</b> Internet Explorer 9及更早 IE 版本浏览器不支持 column-count 属性。</p>
+	<div class="news">
+        <h2 class="title">英国维斯米斯特教堂碑文</h2>
+		当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界
+	</div>
+
+	<div class="othernews">
+        <h2 class="title">英国维斯米斯特教堂碑文</h2>
+		当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界
+	</div>
+
+	<h2>CSS3多列属性</h2>
+	<table>
+		<tr>
+			<th>属性</th>
+			<th>描述</th>
+		</tr>
+		<tr>
+			<td>column-count</td>
+			<td>指定元素应该被分割的列数。</td>
+		</tr>
+		<tr>
+			<td>column-gap</td>
+			<td>指定列与列之间的间隙</td>
+		</tr>
+		<tr>
+			<td>column-rule</td>
+			<td>所有 column-rule-* 属性的简写</td>
+		</tr>
+		<tr>
+			<td>column-rule-color</td>
+			<td>指定两列间边框的颜色</td>
+		</tr>
+		<tr>
+			<td>column-rule-style</td>
+			<td>指定两列间边框的样式</td>
+		</tr>
+		<tr>
+			<td>column-rule-width</td>
+			<td>指定两列间边框的厚度</td>
+		</tr>
+		<tr>
+			<td>column-span</td>
+			<td>指定元素要跨越多少列</td>
+		</tr>
+		<tr>
+			<td>column-width</td>
+			<td>指定列的宽度</td>
+		</tr>
+		<tr>
+			<td>columns</td>
+			<td>设置 column-width 和 column-count 的简写</td>
+		</tr>
+	</table>
+</body>
+</html>
