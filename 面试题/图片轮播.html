@@ -1,0 +1,185 @@
+<!-- 图片轮播：自动播放，每三秒切换一次，当播放到最后一张切换到第一张；当鼠标 移入时停止播放，当鼠标移出时自动播放。 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面试题：图片轮播</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<style>
+		*{
+			padding:0;
+			margin:0;
+			border: 0;
+			text-decoration:none;
+		}
+		body{
+			background-color:rgb(0,0,0,0.4);
+		}
+        #content{
+        	position:relative;
+        	width:970px;
+        	height:550px;
+        	margin:20px auto;
+        	border:2px solid #fff;
+        }
+        #content:hover #tags img{opacity: 1;}
+        /*图片主要显示区*/
+        #player {
+        	position:absolute;
+        	width:100%;
+        	height:100%;
+        	top:0;
+        	left:0;
+        }
+        #player img{
+        	display:inline-block;
+        	position:absolute;
+        	float:left;
+        	width:970px;
+        	height:550px;
+        	top:0;
+        }
+        /*图片显示标签*/
+        #tags{
+        	position:absolute;
+        	left:30px;
+        	bottom:20px;
+        }
+        #tags img{
+            display:inline-block;
+            width:100px;
+            height:61.8px;
+            float:left;
+            margin-right:10px;
+            transition: 1s;
+            opacity:0.5;
+
+        }
+        #tags img:hover{
+        	transform:scale(1.1);
+        	cursor: pointer;
+        }
+        #dir{
+        	position:absolute;
+        	width:100%;
+        	height:60px;
+        	top:50%;
+        }
+        #dir span{
+        	width:30px;
+        	height:60px;
+        	font-size: 30px;
+        	color:#fff;
+        	font-weight: bold;
+        	text-align: center;
+        	line-height: 60px;	
+        }
+        #dir span:hover{
+        	background-color: #000;
+        	opacity: 0.8;
+        }
+        #next{
+        	float:right;
+    
+
+        }
+        #prev{
+        	float:left;
+
+        }
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    	$(function(){
+    		var same=0;   //用于避免碰到相同的图片发生切换
+    		var interval=2000;   //图片自动播放切换时间2秒
+    		var timer;
+    		//显示和隐藏图片
+    		$("#player img").hide();
+    		$("#player img").eq(0).show();
+    		//前一张
+    		$("#prev").click(function(){
+    			same--;
+    			if(same<0){
+    				same=$("#player img").length-1;	
+    			}
+    			$("#player img").fadeOut();
+    			$("#player img").eq(same).fadeIn(500);
+    		})
+    		//下一张
+    		$("#next").click(function(){
+    			same++;
+    			if(same>$("#player img").length-1){
+    				same=0;	
+    			}
+    			$("#player img").fadeOut();
+    			$("#player img").eq(same).fadeIn(500);
+    		})
+
+    		$("#tags img").mouseover(function(){
+    			var tag=$("#tags img").index(this);
+    			if(same!=tag){
+    				$("#player img").fadeOut();
+    				$("#player img").eq(tag).fadeIn(500);
+    			}
+    			same=tag;
+    		}) 
+    		//自动播放图片
+    		function autoplay(){
+    			same++;
+    			if(same>=$("#tags img").length){
+    				same=0;
+    			}
+    			$("#player img").fadeOut();
+    			$("#player img").eq(same).fadeIn(500);
+    		}
+    		//播放图片切换
+    		function play(){
+    			timer=setInterval(autoplay,interval);
+    			$("#dir>span").hide();
+    		}
+    		//停止图片切换
+    		function stop(){
+    			clearInterval(timer);
+    			$("#dir>span").show();
+    		}
+    		/*****鼠标悬浮或移出时播放或停止切换图片***/
+    		$("#content").hover(function(){
+    			stop();
+    		},
+    		function(){
+    			play();
+    		})
+    		//页面加载完成开始自动播放图片
+    		play();
+    	})
+    </script>
+
+</head>
+<body>
+	<div id="content">
+	    <!-- 主显示区 -->
+		<div id="player">
+			<img src="../showSlider/pics/13805531_1347419023266.jpg" />
+			<img src="../showSlider/pics/14175255033658.jpg" />
+			<img src="../showSlider/pics/145825zn1sxa8anrg11gt1.jpg" />
+			<img src="../showSlider/pics/20150525051621346.jpg" />
+			<img src="../showSlider/pics/545637.jpg" />
+			<img src="../showSlider/pics/bizhi-1405-62343.jpg" />
+		</div>
+		<!-- 标签按钮 -->
+		<div id="tags">
+			<img src="../showSlider/pics/13805531_1347419023266.jpg" />
+			<img src="../showSlider/pics/14175255033658.jpg" />
+			<img src="../showSlider/pics/145825zn1sxa8anrg11gt1.jpg" />
+			<img src="../showSlider/pics/20150525051621346.jpg" />
+			<img src="../showSlider/pics/545637.jpg" />
+			<img src="../showSlider/pics/bizhi-1405-62343.jpg" />
+		</div>
+		<div id="dir">
+			<span id="prev">❮</span>
+			<span id="next">❯</span>
+		</div>
+	</div>
+</body>
+</html>

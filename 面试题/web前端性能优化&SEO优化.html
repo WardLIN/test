@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>web前端性能优化&SEO优化</title>
+</head>
+<body>
+	<h1>web前端性能优化</h1>
+	<ol>
+		<li>
+		<b>减少Http请求</b>
+		<ul>
+			<li>使用图片地图</li>
+			<li>使用CSS Sprites</li>
+			<li>合并JS和CSS文件</li>
+		</ul>
+		</li>
+		<li><b>使用CDN(内容发布网络):</b>当页面中有很多资源的时候,可以从不同的服务中去读取,同时可以提高并行下载速度</li>
+		<li><b>添加http Expires头</b></li>
+		<li><b>压缩组件:</b>在Server端对Response资源进行压缩再传给浏览器,一般使用GZIP</li>
+		<li><b>将CSS放再顶部:</b> 能加快页面内容显示,并且能避免页面产生白屏</li>
+		<li>
+		    <b>将JS放在底部</b>
+		    <ul>
+		    <li>JS会阻塞对其后面内容的呈现</li>
+		    <li>JS会阻塞对其后面内容的下载</li>
+		    </ul>
+		</li>
+		<li><b>避免CSS表达式</b></li>
+		<li><b>将JS,CSS放在外部文件中</b></li>
+		<li><b>通过使用Keep-Alive和较少的域名来减少DNS查找</b></li>
+		<li><b>精简JS和CSS文件</b></li>
+		<li><b>寻找一种避免重定向的方法</b></li>
+		<li><b>移除重复的脚本</b></li>
+		<li><b>配置Etag</b></li>
+		<li><b>确保Ajax请求遵守性能指导,必要时候应具备长久的expires头</b></li>
+	</ol>
+	<h2>SEO优化</h2>
+	<ol>
+		<li><b>白帽SEO</b></li>
+		<li><b>网站标题、关键字、描述</b></li>
+		<li><b>网站内容优化</b></li>
+		<li><b>Robot.txt文件</b></li>
+		<li><b>网站地图</b></li>
+		<li><b>增加外链引用</b></li>
+		<li>
+			<b>网站结构布局优化</b><br>
+			&emsp;&emsp;<span>扁平化结构</span>
+			<ul>
+				<li>控制首页链接数量（中小型企业控制在100个以内，链接的性质包括页面导航、底部导航、盲文字链接）</li>
+				<li>扁平化的目录层次（三层）</li>
+				<li>导航SEO优化（主导航、副导航、分类导航、面包屑导航、细节）</li>
+				<li>页面大小、加载速度</li>
+			</ul>
+		</li>
+		<li>
+			<b>网页代码优化</b>
+			<ol>
+				<li>语义化代码</li>
+				<li>重要内容HTML代码放在最前面</li>
+				<li>重要内容不要用js输出(小蜘蛛看不懂)</li>
+				<li>尽量少用iframe框架(小蜘蛛不喜欢爬)</li>
+				<li>对不显示的文字谨慎使用display:none;(小蜘蛛会过滤)可以用text-indent="-999em;"或者z-index</li>
+				<li>精简代码</li>
+			</ol>
+		</li>
+	</ol>
+</body>
+</html>

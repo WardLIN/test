@@ -1,0 +1,32 @@
+<!-- jq将第五个到倒数第二个间的第奇数个li的背景色设置为红色 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面试题：选择器</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<ul id="div">
+		<li>块级1</li>
+		<li>块级2</li>
+		<li>块级3</li>
+		<li>块级4</li>
+		<li>块级5</li>
+		<li>块级6</li>
+		<li>块级7</li>
+		<li>块级8</li>
+		<li>块级9</li>
+	</ul>
+	<script>
+		$(document).ready(function(){
+          let oLis = $("ul#div>li").slice(4,-1);
+          for(let i = 0; i < oLis.length; i+=2){
+          	$(oLis[i]).css("background", "red");
+          }
+       }
+   );
+	</script>
+</body>
+   
+</html>
