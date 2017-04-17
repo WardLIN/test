@@ -70,7 +70,17 @@
         	color:#fff;
         	font-weight: bold;
         	text-align: center;
-        	line-height: 60px;	
+        	line-height: 60px;
+            cursor: pointer;
+            /* 清除用户的连击产生的元素选中样式 */
+            -webkit-user-select: none; 
+            -moz-user-select: none;    
+            -khtml-user-select: none;  
+            -ms-user-select: none;    
+
+            /* 以下两个属性目前并未支持，写在这里为了减少风险 */
+            -o-user-select: none;
+            user-select: none;  	
         }
         #dir span:hover{
         	background-color: #000;
