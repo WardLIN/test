@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<textarea style="width:400px;height:200px;">
+var hero={
+	_name: 'John Doe',
+	getName: function(){
+	   return this._name;
+	}
+};
+var getFn = hero.getName;
+
+console,log(getFn());    <!-- s输出为：undefined -->
+console.log(hero.getName());   <!-- 输出为：John Doe -->
+</textarea>
+<br>
+解释：hero.getName()中，getName是调用者，他不是独立调用，被对象hero所拥有，因此它的this指向了hero。而getFn()作为调用者，尽管他与hero.getName的引用相同，但是它是独立调用的，因此this指向undefined，在非严格模式，自动转向全局window。
+
+

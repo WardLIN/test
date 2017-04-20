@@ -1,0 +1,77 @@
+<meta charset="UTF-8">
+<style>
+	textarea{
+		display: block;
+        width: 300px;
+        height: 150px;
+	}
+</style>
+题目：写下下面语句的输出并解释原因<br>
+for(var i=1;i<=5;i++){<br>
+	setTimeout(function(){<br>
+	   console.log(i);<br>
+	},1000);<br>
+}<br>
+
+输出为：6 6 6 6 6<br>
+<br>
+
+原因：根据setTimeout定义的操作在函数调用栈清空之后才会执行的特点，for循环里定义了5个setTimeout操作。而当这些操作开始执行时，for循环的i值，已经先一步变成了6。因此输出结果总为6。而我们想要让输出结果依次执行，我们就必须借助闭包的特性，每次循环时，将i值保存在一个闭包中，当setTimeout中定义的操作执行时，则访问对应闭包保存的i值即可。<br>
+
+解法一：
+<textarea>
+for (var i=1; i<=5; i++) { 
+    (function(i) {
+        setTimeout( function timer() {
+            console.log(i);
+        }, i*1000 );
+    })(i)
+}
+</textarea>
+
+解法二：
+<textarea>
+在setTimeout的第一个参数处利用闭包。
+for (var i=1; i<=5; i++) { 
+    setTimeout( (function(i) {
+        return function() {
+            console.log(i);
+        }
+    })(i), i*1000 );
+}
+</textarea>
+
+解法三：
+<textarea>
+利用setTimeout第三个参数
+for (var i=1; i<=5; i++) { 
+setTimeout( function timer(i) {
+console.log(i);
+}, i*1000,i );
+}
+</textarea>
+<br>
+解法四：
+<textarea>
+利用bind方法
+for (var i=1; i<=5; i++) { 
+setTimeout( function timer(i) {
+console.log(i);
+}.bind(null,i), i*1000 );
+}
+</textarea>
+解法五：
+<textarea>
+利用es6的let
+for (let i=1; i<=5; i++) { 
+setTimeout( function timer() {
+console.log(i);
+}, i*1000 );
+}
+</textarea>
+解法六：
+<textarea>
+for (var i = 0; i < 5; i++) {
+setTimeout(console.log.bind(console,i), 1000 * i)
+}
+</textarea>

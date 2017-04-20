@@ -1,0 +1,25 @@
+<!-- JS实现clone()方法，对五种主要数据类型(number string object array boolean)进行值复制 -->
+<meta charset='utf-8'>
+<textarea style="width:450px;height:360px">
+function clone(obj){
+	var buf;
+	if(obj instanceof Array){
+		buf = [];//创建一个空数组
+		var i = obj.length;
+		while(i--) {
+			buf(i) = clone(obj[i]);
+		}
+		return buf;
+	}
+	else if(obj instanceof Object){
+		buf = {};//创建一个空对象
+		for (var k in obj){//为这个新对象添加新的属性
+			buf[k] = clone(obj[k]);
+		}
+		return buf;
+	}
+	else{ //普通变量直接赋值
+		return obj;
+	}
+}
+</textarea>
