@@ -1,13 +1,22 @@
 <!-- JS实现clone()方法，对五种主要数据类型(number string object array boolean)进行值复制 -->
 <meta charset='utf-8'>
 <textarea style="width:450px;height:360px">
+var a = {
+	age:12,
+	foo:{
+		abc:'abc'
+	},
+	bar:[123,'hi','hello'],
+	ok:true,
+	str:"a string"
+};
 function clone(obj){
 	var buf;
 	if(obj instanceof Array){
 		buf = [];//创建一个空数组
 		var i = obj.length;
 		while(i--) {
-			buf(i) = clone(obj[i]);
+			buf[i] = clone(obj[i]);
 		}
 		return buf;
 	}
@@ -22,4 +31,6 @@ function clone(obj){
 		return obj;
 	}
 }
+var b = clone(a);
+console.log(b);
 </textarea>
